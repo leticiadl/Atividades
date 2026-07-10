@@ -1,0 +1,169 @@
+// 1.Crie um método que receba um nome como parâmetro e exiba uma mensagem de saudação usando esse nome.
+void main() {
+    saudacao("Leticia");
+}
+
+public static void saudacao(String nome) {
+    System.out.println("Olá "+nome);
+}
+
+// 2.Crie um método que receba dois números como parâmetros e retorne a soma entre eles.
+public class Main {
+    static void main() {
+        Calculadora calculadora = new Calculadora();
+        int resultado = calculadora.somar(10,25);
+        System.out.println("O resultado é " + resultado);
+    }
+}
+
+public class Calculadora {
+    public int somar(int num1, int num2) {
+        return num1 + num2;
+    }
+}
+
+// 3.Crie um método que receba um número como parâmetro e informe se ele é par ou ímpar.
+ublic class Main {
+    static void main() {
+        Calculadora calculadora = new Calculadora();
+        int descobrir = calculadora.ParImpar(5);
+        if (descobrir % 2 == 0) {
+            System.out.println("É par");
+        } else
+            System.out.println("É ímpar");
+    }
+}
+
+public class Calculadora {
+    public int ParImpar(int num1) {
+        return num1;
+    }
+}
+
+// 4.Crie um método que receba dois números como parâmetros e retorne o maior entre eles.
+public class Main {
+    static void main() {
+        Calculadora calculadora = new Calculadora();
+        int resultado = calculadora.maior(5,6);
+        System.out.println("O maior número é: " + resultado);
+    }
+}
+
+public class Calculadora {
+    public int maior (int num1, int num2){
+        if (num1 > num2){
+            System.out.println("Número 1 é maior que número 2");
+            return num1;
+        }else
+            System.out.println("Número 2 é maior que número 1");
+        return num2;
+    }
+}
+
+// 5.Crie um método que receba uma string e um número inteiro como parâmetros e exiba a string repetida a quantidade de vezes informada.
+public class Main {
+    static void main() {
+        Repeticao r = new Repeticao();
+        String resultado = r.dado("Lele",6);
+        System.out.println(resultado);
+    }
+}
+
+public class Repeticao {;
+    public String dado (String nome, int num1){
+        String repete = nome.repeat(num1);
+        return repete;
+    }
+}
+
+// 6.Crie um método recursivo que receba um número inteiro e faça a contagem regressiva até zero.
+public class Main {
+    static void main() {
+        Repeticao r = new Repeticao();
+        r.regresso(5);
+    }
+}
+
+public class Repeticao {
+    public static void regresso(int num1) {
+        if (num1 < 0) {
+            return;
+        }
+        System.out.println(num1);
+        regresso(num1 - 1);
+    }
+}
+
+// 7.Crie um método recursivo que calcule a soma dos números de 1 até n.
+public class Main {
+    static void main() {
+        Repeticao r = new Repeticao();
+        int resultado = r.contar(5);
+        System.out.println(resultado);
+    }
+}
+
+public class Repeticao {
+    public static int contar(int num1) {
+        if (num1 == 0) {
+            return 0;
+        }
+        return num1 + contar(num1-1);
+    }
+}
+
+// 8.Crie um método recursivo que calcule o fatorial de um número inteiro.
+public class Main {
+    static void main() {
+        Repeticao r = new Repeticao();
+        int resultado = r.fatorial(5);
+        System.out.println(resultado);
+    }
+}
+
+public class Repeticao {
+    public static int fatorial(int num1) {
+        if (num1 == 0) {
+            return 1;
+        }
+        return num1 * fatorial(num1-1);
+    }
+}
+
+// 9.Crie um método recursivo que imprima os números de 1 até n em ordem crescente.
+public class Main {
+    static void main() {
+        Repeticao r = new Repeticao();
+        r.contar(5);
+    }
+}
+
+public class Repeticao {
+    public static void contar(int num1) {
+        if (num1 == 0) {
+            return;
+        }
+        contar(num1 - 1);
+        System.out.println(num1);
+    }
+}
+
+// 10.Crie um método recursivo que calcule o enésimo termo da sequência de Fibonacci.
+public class Main {
+    static void main() {
+        Fibonacci r = new Fibonacci();
+        int resultado = r.fibonacci(8);
+        System.out.println(resultado);
+    }
+}
+
+public class Fibonacci {
+    public static int fibonacci(int num1) {
+        if (num1 == 1) {
+            return 0;
+        } else if (num1 == 2) {
+            return 1;
+        }
+        return fibonacci(num1 - 1) + fibonacci(num1 - 2);
+    }
+}
