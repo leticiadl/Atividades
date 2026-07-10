@@ -1,0 +1,140 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Scanner;
+
+/*1.Crie um programa que gere um arquivo dados.csv com o conteúdo:
+Nome,Idade
+João,18
+Maria,22*/
+public class Main {
+    static void main() {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("dados.csv"));
+
+            bw.write("Nome, idade");
+            bw.newLine();
+
+            bw.write("João, 18");
+            bw.newLine();
+
+            bw.write("Maria, 22");
+            bw.newLine();
+
+            bw.close();
+
+            System.out.println("Arquivo criado com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro encontrado no arquivo");
+        }
+    }
+}
+/*2.Gere um arquivo CSV usando uma matriz*/
+public class Main {
+    static void main() {
+
+        Object[][] planilha = new Object[2][4];
+        planilha[0][0] = "nome";
+        planilha[0][1] = "idade";
+        planilha[0][2] = "altura";
+        planilha[0][3] = "estudante";
+
+        planilha[1][0] = "Lele";
+        planilha[1][1] = 19;
+        planilha[1][2] = 1.70;
+        planilha[1][3] = true;
+
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("arquivo.csv"));{
+                for (int i = 0; i < planilha.length; i++) {
+                    for (int j = 0; j < planilha[i].length; j++) {
+
+                        Object valor = planilha[i][j];
+
+                        if (valor != null) {
+                            bw.write(String.valueOf(valor));
+                        } else {
+                            bw.write("");
+                        }
+                        if (j < planilha[i].length - 1) {
+                            bw.write(";");
+                        }
+                    }
+                }
+                bw.newLine();
+
+                System.out.println("Arquivo criado com sucesso!");
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao criar o arquivo!");
+        }
+    }
+}
+
+/*3.Gere um arquivo CSV, Garanta que não exista vírgula no final da linha; Crie um programa em Java que simule
+um sistema simples com menu interativo onde deve registrar todas as ações do usuário em um arquivo chamado log.csv.
+       Menu
+1 - Cadastrar usuário
+2 - Listar usuários
+3 - Editar usuário
+0 - Sai*/
+public class Main {
+    static void main() {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("log.csv"));
+            Scanner scan = new Scanner(System.in);
+            int opcao = -1;
+
+            IO.println("=== Sistema de Usuário ===");
+
+            while (opcao != 0) {
+                IO.println("Menu");
+                IO.println("1 - Cadastrar usuário");
+                IO.println("2 - Listar usuários");
+                IO.println("3 - Editar usuário");
+                IO.println("0 - Sair");
+
+                try {
+                    opcao = Integer.parseInt(scan.nextLine());
+
+                    switch (opcao) {
+                        case 1:
+                            IO.println("[Executando] Cadastro de usuário");
+                            bw.write("Cadastrar usuário");
+                            bw.newLine();
+
+                            IO.println("Pressione ENTER para voltar ao menu...");
+                            scan.nextLine();
+                            break;
+                        case 2:
+                            IO.println("[Executando] Listagem de usuários");
+                            bw.write("Lista de usuários");
+                            bw.newLine();
+
+                            IO.println("Pressione ENTER para voltar ao menu...");
+                            scan.nextLine();
+                            break;
+                        case 3:
+                            IO.println("[Executanto] Edição de usuário");
+                            bw.write("Editar usuário");
+                            bw.newLine();
+                            IO.println("Pressione ENTER para voltar ao menu...");
+                            scan.nextLine();
+                            break;
+                        case 0:
+                            IO.println("Saindo do sistema");
+                            bw.write("Sair");
+                            bw.newLine();
+                            break;
+                    }
+                } catch (Exception e) {
+                    IO.println("Erro encontrado!");
+                }
+            }
+            scan.close();
+            bw.close();
+            IO.println("Sistema finalizado!");
+        }catch(Exception e){
+            IO.println("Erro ao gravar o arquivo");
+        }
+    }
+}
